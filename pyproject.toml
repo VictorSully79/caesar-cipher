@@ -6,8 +6,8 @@ authors = ["VictorSully79 <victorsullivan@hotmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+pytest = "^7.0.1"
 nltk = "^3.7"
-pytest = "^7.0.0"
 
 [tool.poetry.dev-dependencies]
 

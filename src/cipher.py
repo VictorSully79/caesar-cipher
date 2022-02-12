@@ -1,18 +1,17 @@
 from nltk.corpus import words as nltk
 
-
 def encrypt(message, shift):
     res = ""
 
     for char in message:
         if char.isupper():
-            upper_case = 65
-            number_of_shifts = ((ord(char) + shift - number_of_shifts) % 26) + number_of_shifts
+            key = 65
+            number_of_shifts = ((ord(char) + shift - key) % 26) + key
             res += chr(number_of_shifts)
 
         elif char.islower():
-            lower_case = 97
-            number_of_shifts = ((ord(char) + shift - number_of_shifts) % 26) + number_of_shifts
+            key = 97
+            number_of_shifts = ((ord(char) + shift - key) % 26) + key
             res += chr(number_of_shifts)
 
         elif ord(char) == 32:
@@ -54,9 +53,10 @@ def crack(message):
 if __name__ == '__main__':
 
     shift = 10
-    msg = 'Lets make it funky'
-    print(f'message: {msg}')
-    encrypted = encrypt(msg, shift)
+    message = 'Lets make it funky'
+    print(f'message: {message}')
+    encrypted = encrypt(message, shift)
+
     print(f'encrypting: {encrypted}')
     decrypted = decrypt(encrypted, shift)
     print(f'decrypted: {decrypted}')
